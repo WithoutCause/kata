@@ -1,4 +1,4 @@
-package array;
+package linked;
 
 //链表的数据结构
 public class SLinkedList<E> {
@@ -48,6 +48,10 @@ public class SLinkedList<E> {
         public Node(E node, Node next) {
             this.node = node;
         }
+    }
+
+    public static void main(String[] args) {
+        System.err.println(8 + (8 >> 1));
     }
 
 }
