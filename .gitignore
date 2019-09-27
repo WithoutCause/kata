@@ -85,3 +85,4 @@ fabric.properties
 .idea/vcs.xml
 algorithms/Algorithms.iml
 src/
+doc.iml
