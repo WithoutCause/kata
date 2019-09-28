@@ -48,8 +48,16 @@ public class SArrayList<E> {
             }
         }
         size--;
+    }
 
-
+    void insert(int index, E element){
+        // 前面进行健壮性判断
+        if (index > size) {
+            throw new IllegalArgumentException("index 必须小于 ArrayList 的长度");
+        }
+        // 将 index 的位置空出来，index 位置开始的数组，全部往后移动
+        System.arraycopy(object, index, object, index + 1, size - index);
+        object[index] = element;
     }
 
     private boolean checkSize(int size) {
