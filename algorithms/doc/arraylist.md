@@ -20,3 +20,27 @@ public class Test{
     }
 }
 ```
+
+## ArrayList 实现要求
+1. 实现下列接口,其中包含主要的 CRUD 的方法，不包括 `Iterator` 方法
+```java
+public interface SList {
+    int size();
+    boolean isEmpty();
+    boolean contains(Object o);
+    boolean add(E e);
+    boolean addAll(Collection<? extends E> c);
+    boolean addAll(int index, Collection<? extends E> c);
+    boolean removeAll(Collection<?> c);
+    void sort(Comparator<? super E> c);
+    void clear();
+    E get(int index);
+    E set(int index, E element);
+    void add(int index, E element);
+    E remove(int index);
+    int indexOf(Object o);
+    int lastIndexOf(Object o);
+    boolean equals(Object o);
+    int hashCode();
+}
+```
