@@ -35,11 +35,20 @@ public class SArrayList<E> implements SList<E> {
 
     @Override
     public boolean contains(Object o) {
+        if (Objects.isNull(o)) {
+            throw  new IllegalArgumentException("参数错误");
+        }
+        for (Object data : datas) {
+            if (data.equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean add(E e) {
+        // 检查容量，如果容量不够的话，就要启动扩容。
         return false;
     }
 
