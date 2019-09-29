@@ -24,7 +24,7 @@ public class Test{
 ## ArrayList 实现要求
 1. 实现下列接口,其中包含主要的 CRUD 的方法，不包括 `Iterator` 方法
 ```java
-public interface SList {
+public interface SList<E> {
     int size();
     boolean isEmpty();
     boolean contains(Object o);

@@ -1,90 +1,111 @@
 package array;
 
-public class SArrayList<E> {
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Objects;
 
-    private Object[] object;
+public class SArrayList<E> implements SList<E> {
 
-    private int DEFAULT_SIZE = 8;
-
-    /**
-     * 计数
-     */
     private int size;
 
-    public SArrayList(){
-        object = new Object[DEFAULT_SIZE];
+    private Object[] datas;
+
+    private int defaultSize = 8;
+
+    public SArrayList() {
+        datas = new Object[defaultSize];
     }
 
     public SArrayList(int size) {
-        if (size < 0) {
-            throw new IllegalArgumentException("size 必须大于 0");
-        }
-        object = new Object[size];
+        datas = new Object[size];
     }
 
-    /**
-     * 添加元素前要先检查数组的容量是否足够
-     * 够的话，直接在 size 的位置放置元素
-     * 如果不够的话，需要进行括容。每个括容为原来的 1.5 倍 + 1(此处参考 ArrayList 的原理)
-     * @param e
-     */
-    void add(E e) {
-        // 先检查容量是否够，如果够的话，直接添加。否则需要括容
-        size++;
-        if (!checkSize(size)) {
-            ensure();
-        }
-        object[size] = e;
-
+    @Override
+    public int size() {
+        return size;
     }
 
-    void remove(E e) {
-        for (int i = 0; i < object.length; i++) {
-            if (object[i].equals(e)) {
-                // 将对应位置的元素置空
-                object[i] = null;
-                // 位置移动
-                System.arraycopy(object, i+1, object, i, size - object.length + 1);
-            }
+    @Override
+    public boolean isEmpty() {
+        if (Objects.isNull(datas)) {
+            return true;
         }
-        size--;
+        return datas.length <= 0;
     }
 
-    void insert(int index, E element){
-        // 前面进行健壮性判断
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean add(E e) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void sort(Comparator<? super E> c) {
+        // 实现比较器的接口，默认按照升序进行排列
+    }
+
+    @Override
+    public void clear() {
+        for (int i = 0; i < datas.length; i++) {
+            datas[i] = null;
+        }
+    }
+
+    @Override
+    public E get(int index) {
+        if (Objects.isNull(datas)) {
+            throw new ArrayIndexOutOfBoundsException("必须指定要获取的位置");
+        }
+        if (index < 0) {
+            throw new ArrayIndexOutOfBoundsException("下标不能为负数");
+        }
         if (index > size) {
-            throw new IllegalArgumentException("index 必须小于 ArrayList 的长度");
+            throw new ArrayIndexOutOfBoundsException("下标大于数组长度");
         }
-        // 将 index 的位置空出来，index 位置开始的数组，全部往后移动
-        System.arraycopy(object, index, object, index + 1, size - index);
-        object[index] = element;
+        return (E) datas[index];
     }
 
-    private boolean checkSize(int size) {
-        return object.length < size;
+    @Override
+    public E set(int index, E element) {
+        return null;
     }
 
-    private void ensure() {
-        // 括容， ArrayList 是  orignal + (orignal >> 1) 相当于是 1.5 倍。不过传入的是 size+1 , 所以应该是 1.5 倍 +1
-        Object[] objects = new Object[size << 1];
-        System.arraycopy(object,0, objects, 0, object.length);
-    }
-
-    public static void main(String[] args) {
-        // 位置移动
-        Object[] o1 = new Object[3];
-        o1[1] = 1;
-        o1[2] = 2;
-        for (int i = 0; i < o1.length; i++) {
-            if (o1[i] == null) {
-                System.arraycopy(o1, i + 1, o1, i, o1.length - i - 1);
-            }
-        }
-        o1[o1.length - 1] = null;
-        for (Object o : o1) {
-            System.out.println(o);
-        }
+    @Override
+    public void add(int index, E element) {
 
     }
 
+    @Override
+    public E remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
 }
