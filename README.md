@@ -1,19 +1,9 @@
 # kata 计划
 kata 是每天花十分钟来做一些小练习的项目
 
-
-## 数据结构
-### 线性表
-数据结构自己实现
-
-- 数组
-    - ArrayList
-- 链表
-    - LinkedList
-- 栈
-    - Stack
-- 队列
-    - Queue
-    
-    
-### 树
+## [algorithms](./algorithms/README.md)(算法)
+## [concurrent](./concurrent/README.md)(并发编程)
+## [es](./DesignPatterns/README.md)
+## [other](./concurrent/README.md)(杂项)
+## [spring-framework](./concurrent/README.md)
+## [validator](./concurrent/README.md)(校验)
