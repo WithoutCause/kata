@@ -21,4 +21,8 @@ public class NetWorkInterFaceTest {
         }
     }
 
+    public void t() {
+
+    }
+
 }
