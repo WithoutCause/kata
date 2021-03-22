@@ -6,7 +6,11 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.SelectableChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
+import java.util.Set;
 
 public class NIODemo {
 
@@ -42,6 +46,28 @@ public class NIODemo {
         writer.close();
         outputStream.close();
         socket.close();
+    }
+
+    @Test
+    public void keySet() throws IOException {
+
+        ServerSocketChannel channel = ServerSocketChannel.open();
+        channel.configureBlocking(false);
+
+        channel.bind(new InetSocketAddress("localhost", 8888));
+        Selector selector = Selector.open();
+
+        SelectionKey selectionKey = channel.register(selector, SelectionKey.OP_ACCEPT);
+        Set<SelectionKey> keys = selector.keys();
+        for (SelectionKey key : keys) {
+            if (key.isReadable()) {
+//                readHandler();
+            } else if (key.isWritable()) {
+//                writeHandler();
+            }
+
+        }
+
     }
 
 }
