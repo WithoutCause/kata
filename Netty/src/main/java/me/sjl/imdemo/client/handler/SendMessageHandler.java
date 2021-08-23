@@ -31,6 +31,8 @@ public class SendMessageHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("上海自来水来自海上ok12,收到的消息" + s);
         System.out.println("1");
         System.out.println(2);
+        System.out.println(3);
+        System.out.println(4);
     }
 
 
