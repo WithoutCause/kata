@@ -28,7 +28,7 @@ public class SendMessageHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, String s) throws Exception {
-        System.out.println("上海自来水来自海上ok,收到的消息" + s);
+        System.out.println("上海自来水来自海上ok1,收到的消息" + s);
     }
 
 
