@@ -92,3 +92,4 @@ log.path_IS_UNDEFINED
 
 # 不把 generator 工程上传到 git #
 /generator/**
+generator
