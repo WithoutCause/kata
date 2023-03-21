@@ -1,5 +1,8 @@
 package me.sjl;
 
+import com.alibaba.fastjson2.JSON;
+import com.sun.deploy.util.StringUtils;
+import jodd.util.StringUtil;
 import okhttp3.*;
 
 import java.io.File;
@@ -67,4 +70,23 @@ public class OKHttpTest {
         }
     }
 
+    private void t() {
+        String json = "{\"a:\": \"1\"}";
+        Json json1 = JSON.parseObject(json, Json.class);
+
+        String s = "";
+
+    }
+
+    public static void sub(String a) {
+        boolean notEmpty = StringUtil.isNotEmpty(a);
+
+        if (a != null && a != "") {
+            a = "a";
+        }
+    }
+
+    class Json {
+        int a;
+    }
 }
