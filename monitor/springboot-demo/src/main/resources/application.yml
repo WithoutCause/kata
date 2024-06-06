@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: springboot_prometheus
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp1u3s46u6zhmnwg6.mysql.rds.aliyuncs.com:3306/member_1?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: kuafu
+    password: cDzvr04reKv2
+    hikari:
+      maximum-pool-size: 10
+      auto-commit: true
+      idle-timeout: 30000
+      connection-timeout: 30000
+      connection-init-sql: set names utf8mb4;
+      pool-name: ${spring.application.name}
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: me.sjl.entity
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    tags:
+      application: ${spring.application.name}
+

@@ -18,18 +18,20 @@ public class Generator {
 //    public static final String USER_NAME = "kuafu";
 //    public static final String PASSWORD = "cDzvr04reKv2";
 
-    private static final String URL = "jdbc:mysql://rm-bp1u3s46u6zhmnwg6.mysql.rds.aliyuncs.com:3306/employee?useSSL=false";
+    private static final String URL = "jdbc:mysql://rm-bp1u3s46u6zhmnwg6.mysql.rds.aliyuncs.com:3306/wx_platform?useSSL=false";
     public static final String USER_NAME = "kuafu";
     public static final String PASSWORD = "cDzvr04reKv2";
 
     public static final String AUTHOR = "施杰灵";
 
-    public static final String OUTPUT_DIR = "/Users/sjl/work/youngor/shop-guide-server/shop-guide-service/src/main/java";
+    public static final String BASE_PATH = "/Users/sjl/work/youngor/shop-guide-server";
 
-    public static final String XML_PATH = "/Users/sjl/work/youngor/shop-guide-server/shop-guide-service/src/main/resources/repository";
+    public static final String OUTPUT_DIR = BASE_PATH + "/shop-guide-service/src/main/java";
+
+    public static final String XML_PATH = BASE_PATH + "/shop-guide-service/src/main/resources/repository";
 
     /** 这里配置表名，多张表逗号分隔*/
-    public static final String[] TABLES = {"qywx_welcome_config"};
+    public static final String[] TABLES = {"sys_user_wx_account"};
 
 
     public static void main(String[] args) {
@@ -50,7 +52,7 @@ public class Generator {
                 .globalConfig(builder -> {
                     builder.author(AUTHOR) // 设置作者
 //                            .enableSwagger() // 开启 swagger 模式
-                            .disableOpenDir()  // 不打开输出目录
+//                            .disableOpenDir()  // 不打开输出目录
                             .outputDir(OUTPUT_DIR); // 指定输出目录
                 })
                 .packageConfig(builder -> {
