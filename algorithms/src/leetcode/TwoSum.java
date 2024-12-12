@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,11 +67,24 @@ public class TwoSum {
     }
 
 
+    //public static void main(String[] args) {
+    //    int[] nums = {3,3};
+    //    int target = 6;
+    //    TwoSum twoSum = new TwoSum();
+    //    int[] ints = twoSum.twoSum2(nums, target);
+    //    System.out.println("[" + ints[0] + ", " + + ints[1] + "]");
+    //}
+
     public static void main(String[] args) {
-        int[] nums = {3,3};
-        int target = 6;
-        TwoSum twoSum = new TwoSum();
-        int[] ints = twoSum.twoSum2(nums, target);
-        System.out.println("[" + ints[0] + ", " + + ints[1] + "]");
+        LocalDate registerDate = LocalDate.of(2024, 8, 30);
+        LocalDate orderDate = LocalDate.of(2024, 8, 30);;
+        LocalDate nowDate = LocalDate.now();
+        LocalDate minRegisterDate = nowDate.plusDays(0);
+
+        // 会员注册时间范围
+        boolean isNewUser = !registerDate.isBefore(minRegisterDate) && !registerDate.isAfter(nowDate);
+        // 订单下单时间范围
+        boolean isNewOrder = !orderDate.isBefore(minRegisterDate) && !orderDate.isAfter(nowDate);
+        System.out.println(1);
     }
 }

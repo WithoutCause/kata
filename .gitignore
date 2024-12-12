@@ -84,12 +84,12 @@ fabric.properties
 .idea/thriftCompiler.xml
 .idea/vcs.xml
 algorithms/Algorithms.iml
-src/
 doc.iml
 
 .log*
 log.path_IS_UNDEFINED
 
+target/
 # 不把 generator 工程上传到 git #
 /generator/**
 generator
