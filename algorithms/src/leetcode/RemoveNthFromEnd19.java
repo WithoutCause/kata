@@ -1,11 +1,13 @@
 package leetcode;
 
+import java.util.StringJoiner;
+
 /**
  * 19：删除链表的倒数第 N 个结点
  */
 public class RemoveNthFromEnd19 {
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
         ListNode(int val) {
@@ -16,9 +18,20 @@ public class RemoveNthFromEnd19 {
             this.val = val;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            StringJoiner sj = new StringJoiner("->");
+            ListNode current = this;
+            while (current != null) {
+                sj.add(current.val + "");
+                current = current.next;
+            }
+            return sj.toString();
+        }
     }
 
-    private static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dumpNode = new ListNode(0, head);
         ListNode fast = head;
         ListNode slow = dumpNode;
@@ -35,18 +48,18 @@ public class RemoveNthFromEnd19 {
     }
 
     public static void main(String[] args) {
-        //ListNode listNode5 = new ListNode(5);
-        //ListNode listNode4 = new ListNode(4, listNode5);
-        //ListNode listNode3 = new ListNode(3, listNode4);
-        //ListNode listNode2 = new ListNode(2, listNode3);
-        //ListNode listNode1 = new ListNode(1, listNode2);
-        //
-        //ListNode listNode6 = removeNthFromEnd(listNode1, 1);
-        //System.out.println(listNode6);
-        ListNode listNode2 = new ListNode(2);
+        ListNode listNode5 = new ListNode(5);
+        ListNode listNode4 = new ListNode(4, listNode5);
+        ListNode listNode3 = new ListNode(3, listNode4);
+        ListNode listNode2 = new ListNode(2, listNode3);
         ListNode listNode1 = new ListNode(1, listNode2);
-        ListNode result = removeNthFromEnd(listNode1, 2);
-        System.out.println(result);
+
+        ListNode listNode6 = removeNthFromEnd(listNode1, 2);
+        System.out.println(listNode6);
+        //ListNode listNode2 = new ListNode(2);
+        //ListNode listNode1 = new ListNode(1, listNode2);
+        //ListNode result = removeNthFromEnd(listNode1, 2);
+        //System.out.println(result);
     }
 
 }

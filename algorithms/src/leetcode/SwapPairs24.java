@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.StringJoiner;
+
 /**
  * 给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
  */
@@ -16,9 +18,20 @@ public class SwapPairs24 {
             this.val = val;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            StringJoiner sj = new StringJoiner("->");
+            ListNode current = this;
+            while (current != null) {
+                sj.add(current.val + "");
+                current = current.next;
+            }
+            return sj.toString();
+        }
     }
 
-    public static ListNode swapPairs(ListNode head) {
+    private static ListNode swapPairs(ListNode head) {
         // 添加一个哑节点
         ListNode dumbNode = new ListNode(0, head);
         ListNode temp = dumbNode;
