@@ -1,11 +1,8 @@
-package leetcode;
+package main.java.leetcode;
 
 import java.util.StringJoiner;
 
-/**
- * 19：删除链表的倒数第 N 个结点
- */
-public class RemoveNthFromEnd19 {
+public class MiddleNode876 {
 
     private static class ListNode {
         int val;
@@ -31,20 +28,17 @@ public class RemoveNthFromEnd19 {
         }
     }
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dumpNode = new ListNode(0, head);
-        ListNode fast = head;
-        ListNode slow = dumpNode;
-        for (int i = 0; i < n; i++) {
-            fast = fast.next;
+    public static ListNode middleNode(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-
-        while (fast != null) {
-            fast = fast.next;
-            slow = slow.next;
+        ListNode slowPoint = head;
+        ListNode fastPoint = head;
+        while (fastPoint != null && fastPoint.next != null) {
+            slowPoint = slowPoint.next;
+            fastPoint = fastPoint.next.next;
         }
-        slow.next = slow.next.next;
-        return dumpNode.next;
+        return slowPoint;
     }
 
     public static void main(String[] args) {
@@ -54,12 +48,8 @@ public class RemoveNthFromEnd19 {
         ListNode listNode2 = new ListNode(2, listNode3);
         ListNode listNode1 = new ListNode(1, listNode2);
 
-        ListNode listNode6 = removeNthFromEnd(listNode1, 2);
-        System.out.println(listNode6);
-        //ListNode listNode2 = new ListNode(2);
-        //ListNode listNode1 = new ListNode(1, listNode2);
-        //ListNode result = removeNthFromEnd(listNode1, 2);
-        //System.out.println(result);
+        ListNode listNode = middleNode(listNode1);
+        System.out.println(listNode);
     }
 
 }
