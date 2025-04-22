@@ -1,4 +1,4 @@
-package main.java.leetcode;
+package leetcode;
 
 public class MaxDepth1614 {
 

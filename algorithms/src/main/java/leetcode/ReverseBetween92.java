@@ -1,33 +1,8 @@
-package main.java.leetcode;
+package leetcode;
 
-import java.util.StringJoiner;
+import common.ListNode;
 
 public class ReverseBetween92 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            StringJoiner sj = new StringJoiner("->");
-            ListNode current = this;
-            while (current != null) {
-                sj.add(current.val + "");
-                current = current.next;
-            }
-            return sj.toString();
-        }
-    }
 
     /**
      * 思路：使用头插头。先遍历 left，将 left 定义到 left - 1 的位置。(left - 1).next 就是要翻转的第一个节点

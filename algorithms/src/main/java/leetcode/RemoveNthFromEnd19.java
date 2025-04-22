@@ -1,4 +1,6 @@
-package main.java.leetcode;
+package leetcode;
+
+import common.ListNode;
 
 import java.util.StringJoiner;
 
@@ -6,30 +8,6 @@ import java.util.StringJoiner;
  * 19：删除链表的倒数第 N 个结点
  */
 public class RemoveNthFromEnd19 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            StringJoiner sj = new StringJoiner("->");
-            ListNode current = this;
-            while (current != null) {
-                sj.add(current.val + "");
-                current = current.next;
-            }
-            return sj.toString();
-        }
-    }
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dumpNode = new ListNode(0, head);
