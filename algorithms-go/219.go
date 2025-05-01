@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func containsNearbyDuplicate(nums []int, k int) bool {
-	numMap := make(map[int]int)
+	numMap := make(map[int]int, len(nums))
 	for i, v := range nums {
 		if value, exist := numMap[v]; exist && i-value <= k {
 			return true
