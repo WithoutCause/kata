@@ -5,9 +5,9 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class FirstUnicodeChar387 {
+public class FirstUniqChar387 {
 
-    public static int firstUnicodeCharV2(String s) {
+    public static int firstUniqCharV2(String s) {
         Map<Character, Long> charMap1 = s.chars().mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(
                         Function.identity(),
@@ -21,7 +21,7 @@ public class FirstUnicodeChar387 {
         return -1;
     }
 
-    public static int firstUnicodeChar(String s) {
+    public static int firstUniqChar(String s) {
         Map<Character, Integer> charMap = new HashMap<>(s.length());
 
         for (char c : s.toCharArray()) {
@@ -39,7 +39,7 @@ public class FirstUnicodeChar387 {
 
     public static void main(String[] args) {
         String s = "aabb";
-        int i = firstUnicodeChar(s);
+        int i = firstUniqChar(s);
         System.out.println(i);
     }
 
