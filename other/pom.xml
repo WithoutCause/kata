@@ -49,7 +49,7 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>2.13.2</version>
+            <version>3.22.0</version>
         </dependency>
 
         <dependency>
